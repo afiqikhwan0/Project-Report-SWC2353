@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Item Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product 1</td>
+                    <td><input type="number" id="quantity" value="1" min="1" oninput="updateSubtotal()"></td>
+                    <td id="price">$10.00</td>
+                    <td id="subtotal">$10.00</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="total-section">
+            <p class="total-price">Total: <span id="total">$10.00</span></p>
+            <button class="btn" onclick="completePurchase()">Checkout</button>
+        </div>
+
+        <!-- Purchase complete message -->
+        <div id="purchase-complete" class="purchase-complete hidden">
+            <h2>Thank you for your purchase!</h2>
+            <p>Your order is being processed and will be shipped soon.</p>
+            <button class="btn" onclick="returnToCart()">Return to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        const price = 10.00; // Price of the single item
+
+        function updateSubtotal() {
+            const quantity = document.getElementById("quantity").value;
+            const subtotal = quantity * price;
+            document.getElementById("subtotal").innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById("total").innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        function completePurchase() {
+            // Hide cart elements
+            document.querySelector(".container").style.display = "none";
+            
+            // Show purchase complete message
+            document.getElementById("purchase-complete").classList.remove("hidden");
+        }
+
+        function returnToCart() {
+            // Show cart again
+            document.querySelector(".container").style.display = "block";
+            
+            // Hide purchase complete message
+            document.getElementById("purchase-complete").classList.add("hidden");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <img src="c++ books.jpg" alt="C++ Programming">
+                    <td>C++ Programming</td>
+                    <td><input type="number" value="1" min="0"></td>
+                    <td>RM30.00</td>
+                    <td>RM30.00</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="total-section">
+            <p class="total-price">Total: RM30.00</p>
+            <button class="btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        function checkout() {
+            alert("Proceeding to checkout...");
+        }
+    </script>
+    
+</body>
+</html>
+
